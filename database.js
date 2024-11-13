@@ -7,6 +7,9 @@ let db=new sqlite3.Database(dbname,(err)=>{
   }
   else{
     console.log("Connected to database");
+}
+});
+db.serialize(()=>{
     db.run("CREATE TABLE IF NOT EXIST items (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,description TEXT)",(err)=>{
       if (err){
         console.log(err.message)
@@ -15,8 +18,9 @@ let db=new sqlite3.Database(dbname,(err)=>{
         console.log("Table created or exist")
       }
     })
-    
-  }
 })
+    
+  
+
 
 export module=db;
