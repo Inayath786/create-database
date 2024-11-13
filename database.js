@@ -10,7 +10,7 @@ let db=new sqlite3.Database(dbname,(err)=>{
 }
 });
 db.serialize(()=>{
-    db.run("CREATE TABLE IF NOT EXIST items (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,description TEXT)",(err)=>{
+    db.run("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,description TEXT)",(err)=>{
       if (err){
         console.log(err.message)
       }
@@ -23,4 +23,4 @@ db.serialize(()=>{
   
 
 
-export module=db;
+module.exports=db;
