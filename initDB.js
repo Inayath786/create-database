@@ -14,13 +14,13 @@ const readItems = (callback) => {
 };
 
 const updateItem = (id, name, description, callback) => {
-  const sql = 'UPDATE items SET name=?,description =?,where id=?';
+  const sql = 'UPDATE items SET name=?,description =?,WHERE id=?';
   db.run(sql, [name, description, id], callback);
 };
 
 const deleteItem = (id, callback) => {
-  const sql = `DELETE items WHERE id= ?`;
+  const sql = `DELETE FROM items WHERE id= ?`;
   db.run(sql, id, callback);
 };
 
-module.export = { createItem, readItem, updateItem, deleteItem };
+module.exports = { createItem, readItems, updateItem, deleteItem };
