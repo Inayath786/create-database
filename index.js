@@ -1,6 +1,6 @@
 const express = require('express');
 const { resolve } = require('path');
-const {createItem,readItem,updateItem,deleteItem}=require("./initDB");
+const {createItem,readItems,updateItem,deleteItem}=require("./initDB");
 
 
 const app = express();
@@ -24,10 +24,10 @@ app.post("/items",(req,res)=>{
   const {name,description}=req.body
   createItem(name,description,(err,data)=>{
     if(err){
-      res.status(500),send(err.message)
+      res.status(500).send(err.message)
     }
     else{
-      res.status(201),send("Item added id:"${data,id})
+      res.status(201).send("Item added id:"${data,id})
     }
   })
 })
